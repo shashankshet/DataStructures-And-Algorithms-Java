@@ -16,6 +16,8 @@ public class Main {
         secondMax(res);
         //to moves zeros to the end of the array
         moveZeros(new int[]{1, 2, 0, 4, 5, 0, 0, 0});
+        //to resize am array
+        resizeArray(res,20);
     }
     //todo:  fucntion to remove even elements from array
     public static void removeEven(int arr[]){
@@ -99,5 +101,15 @@ public class Main {
         for(int i =0;i<arr.length;i++){
             System.out.print(arr[i]+" ");
         }
+    }
+
+    //todo: function to resize array
+    public static void resizeArray(int arr[], int newSize){
+        int temp[] = new int[newSize];
+        for(int i =0;i<arr.length;i++){
+            temp[i] =arr[i];
+        }
+        arr = temp;
+        System.out.println("\nthe new size of the array is: "+arr.length);
     }
 }

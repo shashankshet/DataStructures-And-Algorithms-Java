@@ -20,6 +20,8 @@ public class Main {
         resizeArray(res,20);
         //to find the missing number in the array
         findMissing(new int[]{1,3,4,5,6,7,8});
+        //to check is str is pallindrom or not
+        isPallindrom("madam");
     }
     //todo:  fucntion to remove even elements from array
     public static void removeEven(int arr[]){
@@ -126,4 +128,20 @@ public class Main {
         int missing_no = sum-sum_of_n;
         System.out.println("\nthe missing number is: "+missing_no);
     }
+
+    //todo: to check if a string is pallindrome or not
+    public static void isPallindrom(String str) {
+        char arr[] = str.toCharArray();
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            if (arr[start] != arr[end]) {
+                System.out.println("Not pallindome");
+            }
+            start++;
+            end--;
+        }
+        System.out.println(str + " is a pallindromw!");
+    }
+
 }

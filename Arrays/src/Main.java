@@ -18,6 +18,8 @@ public class Main {
         moveZeros(new int[]{1, 2, 0, 4, 5, 0, 0, 0});
         //to resize am array
         resizeArray(res,20);
+        //to find the missing number in the array
+        findMissing(new int[]{1,3,4,5,6,7,8});
     }
     //todo:  fucntion to remove even elements from array
     public static void removeEven(int arr[]){
@@ -111,5 +113,17 @@ public class Main {
         }
         arr = temp;
         System.out.println("\nthe new size of the array is: "+arr.length);
+    }
+
+    //todo: function to find the missing element
+    public static void findMissing(int arr[]){
+        int n = arr.length+1;
+        int sum =( n*(n+1))/2;
+        int sum_of_n = 0;
+        for(int i=0;i< arr.length;i++){
+            sum_of_n = sum_of_n+arr[i];
+        }
+        int missing_no = sum-sum_of_n;
+        System.out.println("\nthe missing number is: "+missing_no);
     }
 }

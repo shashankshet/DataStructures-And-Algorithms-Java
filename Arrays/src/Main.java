@@ -6,8 +6,12 @@ public class Main {
             System.out.print(res[i]+" ");
         }
         System.out.println();
+        //to remove even elements in array
         removeEven(res);
+        //to reverse an array
         reverseArray(res,0,res.length-1);
+        //to find min element in an array
+        findMin(res);
 
     }
     //todo:  fucntion to remove even elements from array
@@ -30,6 +34,7 @@ public class Main {
         for(int i=0;i< res.length;i++){
             System.out.print(res[i]+" ");
         }
+
     }
     //todo: function to reverse am array
     public static void reverseArray(int arr[], int start, int end){
@@ -45,5 +50,16 @@ public class Main {
         for(int i=0;i< arr.length;i++){
             System.out.print(arr[i]+" ");
         }
+    }
+
+    //todo: to find the minimunm element in the array
+    public static void findMin(int arr[]){
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<min){
+                min=arr[i];
+            }
+        }
+        System.out.println("\nthe min value in the array is: "+min);
     }
 }

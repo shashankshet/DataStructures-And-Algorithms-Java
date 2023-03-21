@@ -14,6 +14,8 @@ public class Main {
         findMin(res);
         //to find the second max element from an array
         secondMax(res);
+        //to moves zeros to the end of the array
+        moveZeros(new int[]{1, 2, 0, 4, 5, 0, 0, 0});
     }
     //todo:  fucntion to remove even elements from array
     public static void removeEven(int arr[]){
@@ -78,5 +80,24 @@ public class Main {
             }
         }
         System.out.println("\nSecond max element is: "+second_max);
+    }
+
+    //todo: move zeros to the end of the array
+    public static void moveZeros(int arr[]){
+        int j=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0 && arr[j]==0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            } else if (arr[j]!=0) {
+                j++;
+
+            }
+        }
+        System.out.println("\nAfter moving all the zeros to the end");
+        for(int i =0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }

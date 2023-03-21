@@ -12,7 +12,8 @@ public class Main {
         reverseArray(res,0,res.length-1);
         //to find min element in an array
         findMin(res);
-
+        //to find the second max element from an array
+        secondMax(res);
     }
     //todo:  fucntion to remove even elements from array
     public static void removeEven(int arr[]){
@@ -61,5 +62,21 @@ public class Main {
             }
         }
         System.out.println("\nthe min value in the array is: "+min);
+    }
+
+    //todo: To find the second max element from an array
+    public static void secondMax(int arr[]){
+        int max = Integer.MIN_VALUE;
+        int second_max = Integer.MIN_VALUE;
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>max){
+                second_max = max;
+                max=arr[i];
+            } else if (arr[i]>second_max && arr[i]!=max ) {
+                second_max = arr[i];
+            }
+        }
+        System.out.println("\nSecond max element is: "+second_max);
     }
 }

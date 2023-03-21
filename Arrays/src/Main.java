@@ -6,14 +6,12 @@ public class Main {
             System.out.print(res[i]+" ");
         }
         System.out.println();
+        removeEven(res);
+        reverseArray(res,0,res.length-1);
 
-        int result[] = removeEven(res);
-        for(int i=0;i< result.length;i++){
-            System.out.print(res[i]+" ");
-        }
     }
     //todo:  fucntion to remove even elements from array
-    public static int[] removeEven(int arr[]){
+    public static void removeEven(int arr[]){
         int oddCount=0;
         for(int i=0;i< arr.length;i++){
             if(arr[i]%2!=0){
@@ -23,12 +21,29 @@ public class Main {
         int idx = 0;
         int res[] = new int[oddCount];
 
-        for(int i=0;i< res.length;i++){
+        for(int i=0;i< arr.length;i++){
             if(arr[i]%2!=0){
                 res[idx]=arr[i];
                 idx++;
             }
         }
-        return res;
+        for(int i=0;i< res.length;i++){
+            System.out.print(res[i]+" ");
+        }
+    }
+    //todo: function to reverse am array
+    public static void reverseArray(int arr[], int start, int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] =temp;
+            start++;
+            end--;
+        }
+        System.out.println("\n==================");
+        System.out.println("after reversing");
+        for(int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }

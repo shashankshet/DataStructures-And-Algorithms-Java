@@ -20,6 +20,7 @@ public class SinglyLinkedList {
             current=current.next;
         }
         System.out.print("null");
+        System.out.println();
     }
     //todo: function to print the length of the linkedlist
     public static void printLength(ListNode head){
@@ -51,6 +52,28 @@ public class SinglyLinkedList {
         }
         current.next=node;
     }
+
+    //todo: function to insert node at given position
+    public static void insertAtPos(SinglyLinkedList sll, int val, int pos){
+        ListNode newNode = new ListNode(val);
+
+        if(pos==1){
+            newNode.next=sll.head;
+            sll.head = newNode;
+        }
+        else{
+            ListNode prev = sll.head;
+            int count = 1;
+            while (count<pos-1){
+                prev = prev.next;
+                count++;
+            }
+            ListNode current = prev.next;
+            newNode.next = current;
+            prev.next = newNode;
+        }
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -67,6 +90,9 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //to insert node at the end of linkedlist
      insertAtEnd(singlyLinkedList,50);
+     printList(singlyLinkedList.head);
+     //to insert node at any given valid position of linkedlist
+     insertAtPos(singlyLinkedList,60,2);
      printList(singlyLinkedList.head);
 
 

@@ -31,6 +31,13 @@ public class SinglyLinkedList {
         }
         System.out.println("\nThe length of the linkedList is: "+count);
     }
+    //todo: function to insert at the start of the linkedList (add as head)
+    public static void insertAtStart(SinglyLinkedList sll, int val){
+        ListNode node = new ListNode(val);
+        node.next = sll.head;
+        sll.head = node;
+
+    }
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -42,6 +49,9 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //print the length of the linkedList
      printLength(singlyLinkedList.head);
+     //to insert node at the beginning of linkedlist
+     insertAtStart(singlyLinkedList,40);
+     printList(singlyLinkedList.head);
 
     }
 }

@@ -21,6 +21,16 @@ public class SinglyLinkedList {
         }
         System.out.print("null");
     }
+    //todo: function to print the length of the linkedlist
+    public static void printLength(ListNode head){
+        ListNode current = head;
+        int count = 0;
+        while (current!=null){
+            count=count+1;
+            current=current.next;
+        }
+        System.out.println("\nThe length of the linkedList is: "+count);
+    }
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -30,6 +40,8 @@ public class SinglyLinkedList {
      second.next = third;
      //print the linkedList
      printList(singlyLinkedList.head);
+     //print the length of the linkedList
+     printLength(singlyLinkedList.head);
 
     }
 }

@@ -36,7 +36,20 @@ public class SinglyLinkedList {
         ListNode node = new ListNode(val);
         node.next = sll.head;
         sll.head = node;
+    }
 
+    //todo: fucntion to insert node at the end of the linkedList
+    public static void insertAtEnd(SinglyLinkedList sll, int val){
+        ListNode node = new ListNode(val);
+
+        if(sll.head==null){
+            sll.head = node;
+        }
+        ListNode current = sll.head;
+        while(current.next!=null){
+            current=current.next;
+        }
+        current.next=node;
     }
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
@@ -52,6 +65,10 @@ public class SinglyLinkedList {
      //to insert node at the beginning of linkedlist
      insertAtStart(singlyLinkedList,40);
      printList(singlyLinkedList.head);
+     //to insert node at the end of linkedlist
+     insertAtEnd(singlyLinkedList,50);
+     printList(singlyLinkedList.head);
+
 
     }
 }

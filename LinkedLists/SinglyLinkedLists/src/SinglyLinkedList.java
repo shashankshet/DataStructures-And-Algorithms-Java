@@ -92,6 +92,20 @@ public class SinglyLinkedList {
         System.out.println();
 
     }
+    //todo: to delete the last node of linkedList
+    public static void deleteLast(SinglyLinkedList sll){
+        if(sll.head == null || sll.head.next==null){
+            sll.head=null;
+        }
+        ListNode current = sll.head;
+        ListNode previous = null;
+        while(current.next!=null){
+            previous=current;
+            current=current.next;
+        }
+        previous.next=null;
+
+    }
 
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
@@ -115,6 +129,7 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //to delete the first element
      deleteFirst(singlyLinkedList);
+     deleteLast(singlyLinkedList);
 
     }
 }

@@ -154,6 +154,21 @@ public class SinglyLinkedList {
        return prev;
     }
 
+    //todo: return the middle element of a linkedlist
+    public static ListNode middleNode(ListNode head){
+        if(head==null){
+            return null;
+        }
+        ListNode slowptr= head;
+        ListNode fastptr = head;
+        while (fastptr!=null && fastptr.next!=null){
+            slowptr=slowptr.next;
+            fastptr=fastptr.next.next;
+        }
+        System.out.println(slowptr.data);
+        return slowptr;
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -183,7 +198,8 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //to seach a key in linkedlist
      search(singlyLinkedList,30);
-     reverse(singlyLinkedList.head);
+     // reverse(singlyLinkedList.head);
      printList(singlyLinkedList.head);
+     middleNode(singlyLinkedList.head);
     }
 }

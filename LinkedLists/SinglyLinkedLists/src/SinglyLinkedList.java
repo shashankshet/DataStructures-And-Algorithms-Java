@@ -124,6 +124,20 @@ public class SinglyLinkedList {
         }
     }
 
+    //todo: function to search a key in linkedlist
+    public static boolean search(SinglyLinkedList sll,int key){
+        ListNode current = sll.head;
+        while (current!=null){
+            if(current.data==key){
+                System.out.println("key found");
+                return true;
+            }
+            current=current.next;
+        }
+        System.out.println("key not found");
+        return false;
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -147,10 +161,12 @@ public class SinglyLinkedList {
      //to delete the first element
      deleteFirst(singlyLinkedList);
      //delete the last element of linkedlist
-//   deleteLast(singlyLinkedList);
+     // deleteLast(singlyLinkedList);
      //deletes the node at a given valid position
      deletenthNode(singlyLinkedList,2);
      printList(singlyLinkedList.head);
+     //to seach a key in linkedlist
+     search(singlyLinkedList,30);
 
     }
 }

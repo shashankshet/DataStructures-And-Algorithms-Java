@@ -138,6 +138,22 @@ public class SinglyLinkedList {
         return false;
     }
 
+    //todo: reverse a singly linkedlist
+    public static ListNode reverse(ListNode head){
+        if(head==null)
+            return head;
+        ListNode prev = null;
+        ListNode current = head;
+        ListNode next = null;
+        while (current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+       return prev;
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -167,6 +183,7 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //to seach a key in linkedlist
      search(singlyLinkedList,30);
-
+     reverse(singlyLinkedList.head);
+     printList(singlyLinkedList.head);
     }
 }

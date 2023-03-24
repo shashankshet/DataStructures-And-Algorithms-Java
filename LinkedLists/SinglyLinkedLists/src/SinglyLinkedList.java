@@ -107,6 +107,23 @@ public class SinglyLinkedList {
 
     }
 
+    //todo: delete a node in a given valid position
+    public static void deletenthNode(SinglyLinkedList sll,int pos){
+        if(pos==1){
+            sll.head = sll.head.next;
+        }
+        else {
+            ListNode previous = sll.head;
+            int count = 1;
+            while (count<pos-1){
+                previous=previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+        }
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -129,7 +146,11 @@ public class SinglyLinkedList {
      printList(singlyLinkedList.head);
      //to delete the first element
      deleteFirst(singlyLinkedList);
-     deleteLast(singlyLinkedList);
+     //delete the last element of linkedlist
+//   deleteLast(singlyLinkedList);
+     //deletes the node at a given valid position
+     deletenthNode(singlyLinkedList,2);
+     printList(singlyLinkedList.head);
 
     }
 }

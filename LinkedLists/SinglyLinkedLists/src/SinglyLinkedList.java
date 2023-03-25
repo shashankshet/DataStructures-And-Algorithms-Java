@@ -168,6 +168,25 @@ public class SinglyLinkedList {
         System.out.println(slowptr.data);
         return slowptr;
     }
+    //todo: to find the nth node from the last in a linkedlist
+    public static void lastFronNth (SinglyLinkedList sll,int n){
+        if(sll.head==null || n<0){
+            return;
+        }
+        ListNode mainPtr = sll.head;
+        ListNode refPtr = sll.head;
+        int count = 0;
+        while (count<n){
+            refPtr = refPtr.next;
+            count++;
+        }
+        while (refPtr!=null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+
+        System.out.println("lastFronNth: "+mainPtr.data);
+    }
 
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
@@ -201,5 +220,7 @@ public class SinglyLinkedList {
      // reverse(singlyLinkedList.head);
      printList(singlyLinkedList.head);
      middleNode(singlyLinkedList.head);
+     //get the last nth node
+     lastFronNth(singlyLinkedList, 2);
     }
 }

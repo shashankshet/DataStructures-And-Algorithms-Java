@@ -188,6 +188,22 @@ public class SinglyLinkedList {
         System.out.println("lastFronNth: "+mainPtr.data);
     }
 
+    //todo: remove duplicates from sorted singly linked list
+    public static void removeDuplicates(SinglyLinkedList sll){
+        if(sll.head ==null){
+            return;
+        }
+        ListNode current = sll.head;
+        while (current!=null && current.next!=null){
+            if(current.data==current.next.data){
+                current.next = current.next.next;
+            }
+            else {
+                current=current.next;
+            }
+        }
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -203,6 +219,7 @@ public class SinglyLinkedList {
      insertAtStart(singlyLinkedList,40);
      printList(singlyLinkedList.head);
      //to insert node at the end of linkedlist
+     insertAtEnd(singlyLinkedList,50);
      insertAtEnd(singlyLinkedList,50);
      printList(singlyLinkedList.head);
      //to insert node at any given valid position of linkedlist
@@ -222,5 +239,8 @@ public class SinglyLinkedList {
      middleNode(singlyLinkedList.head);
      //get the last nth node
      lastFronNth(singlyLinkedList, 2);
+     //removes duplicated from sorted singly linked list
+     removeDuplicates(singlyLinkedList);
+     printList(singlyLinkedList.head);
     }
 }

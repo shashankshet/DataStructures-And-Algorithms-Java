@@ -204,6 +204,26 @@ public class SinglyLinkedList {
         }
     }
 
+    //todo: insert node in sorted singly linked list
+
+    public static void insertToSortedlist(SinglyLinkedList sll, int val){
+        ListNode newNode = new ListNode(val);
+        if(sll.head==null){
+            sll.head=newNode;
+        }
+        ListNode current = sll.head;
+        ListNode temp = null;
+
+        while (current!=null && current.data<newNode.data){
+            current=current.next;
+            temp = current;
+        }
+        newNode.next = current;
+        temp.next = newNode;
+
+
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -242,5 +262,16 @@ public class SinglyLinkedList {
      //removes duplicated from sorted singly linked list
      removeDuplicates(singlyLinkedList);
      printList(singlyLinkedList.head);
+     //creating a sorted singly linked list
+     SinglyLinkedList sll = new SinglyLinkedList();
+     insertAtStart(sll,10);
+     insertAtEnd(sll,20);
+     insertAtEnd(sll,30);
+     insertAtEnd(sll,40);
+     insertAtEnd(sll,50);
+     printList(sll.head);
+     //to insert node in a sorted singlylinked list
+     insertToSortedlist(sll,35);
+
     }
 }

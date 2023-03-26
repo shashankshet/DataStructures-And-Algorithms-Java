@@ -245,6 +245,22 @@ public class SinglyLinkedList {
         temp.next=currnt.next;
     }
 
+    //todo: to detect loop in a singlylinkedlist
+    public static boolean containsLoop(SinglyLinkedList sll){
+        ListNode fastPtr = sll.head;
+        ListNode slowPtr = sll.head;
+
+        while (fastPtr!=null &&  fastPtr.next!=null){
+            fastPtr=fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(fastPtr==slowPtr){
+                return true;
+            }
+        }
+
+        return false;
+    }
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -293,8 +309,10 @@ public class SinglyLinkedList {
      printList(sll.head);
      //to insert node in a sorted singlylinked list
      insertToSortedlist(sll,35);
-    //to delete node in a singlylinked list given key
+     //to delete node in a singlylinked list given key
      deleteNodeKey(sll,35);
+     //loop check in singlylinkedlist
+     containsLoop(sll);
 
     }
 }

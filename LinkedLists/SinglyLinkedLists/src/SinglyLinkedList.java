@@ -221,7 +221,28 @@ public class SinglyLinkedList {
         newNode.next = current;
         temp.next = newNode;
 
+    }
 
+    //todo: remove a given key from singlylinkedlist
+    public static void deleteNodeKey(SinglyLinkedList sll,int key){
+        ListNode currnt = sll.head;
+        ListNode temp = null;
+
+        if(sll.head==null){
+            return;
+        }
+        if(currnt!=null && currnt.data ==key){
+            currnt=currnt.next;
+            return;
+        }
+        while (currnt!=null && currnt.data!=key){
+            temp =currnt;
+            currnt=currnt.next;
+        }
+        if(currnt==null){
+            return;
+        }
+        temp.next=currnt.next;
     }
 
     public static void main(String[] args) {
@@ -272,6 +293,8 @@ public class SinglyLinkedList {
      printList(sll.head);
      //to insert node in a sorted singlylinked list
      insertToSortedlist(sll,35);
+    //to delete node in a singlylinked list given key
+     deleteNodeKey(sll,35);
 
     }
 }

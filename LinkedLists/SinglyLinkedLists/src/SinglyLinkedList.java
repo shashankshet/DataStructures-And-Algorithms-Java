@@ -261,6 +261,30 @@ public class SinglyLinkedList {
 
         return false;
     }
+
+    //todo: to find the starting of loop in a singly linked list
+    public ListNode startOfLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while (fastPtr!=null && fastPtr.next!=null) {
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if(fastPtr==slowPtr){
+                return getStartingNode(slowPtr);
+            }
+        }
+        return null;
+    }
+    public ListNode getStartingNode(ListNode slowPtr){
+        ListNode temp = head;
+        while (temp!=slowPtr){
+            temp = temp.next;
+            slowPtr = slowPtr.next;
+        }
+        return temp;
+    }
+
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);

@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class SinglyLinkedList {
     private ListNode head;
 
@@ -276,6 +274,27 @@ public class SinglyLinkedList {
         }
         return null;
     }
+
+    //todo: to remove loop from a singly linked list
+    public static void removeLoop(ListNode head){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while (fastPtr!=null && fastPtr.next!=null){
+            fastPtr=fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if(fastPtr==slowPtr){
+                breakLoop(slowPtr);
+            }
+        }
+    }
+    public void breakLoop(ListNode slowPtr){
+        ListNode temp = head;
+        while (temp.next!=slowPtr.next){
+            temp=temp.next;
+            slowPtr=slowPtr.next
+        }
+        slowPtr.next = null;
+    }
     public ListNode getStartingNode(ListNode slowPtr){
         ListNode temp = head;
         while (temp!=slowPtr){
@@ -337,6 +356,8 @@ public class SinglyLinkedList {
      deleteNodeKey(sll,35);
      //loop check in singlylinkedlist
      containsLoop(sll);
+     //to remove loop
+     removeLoop(sll.head);
 
     }
 }

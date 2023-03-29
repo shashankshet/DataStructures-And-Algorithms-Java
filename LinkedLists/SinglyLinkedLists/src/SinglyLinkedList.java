@@ -1,5 +1,5 @@
 public class SinglyLinkedList {
-    private ListNode head;
+    private static ListNode head;
 
     private static class ListNode{
         private int data;
@@ -287,11 +287,11 @@ public class SinglyLinkedList {
             }
         }
     }
-    public void breakLoop(ListNode slowPtr){
+    public static void breakLoop(ListNode slowPtr){
         ListNode temp = head;
         while (temp.next!=slowPtr.next){
             temp=temp.next;
-            slowPtr=slowPtr.next
+            slowPtr=slowPtr.next;
         }
         slowPtr.next = null;
     }
@@ -304,6 +304,31 @@ public class SinglyLinkedList {
         return temp;
     }
 
+    //todo: merge 2 sorted linked list
+
+    public static ListNode merge(ListNode a, ListNode b){
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        while (a!=null && b!=null){
+            if(a.data<= b.data){
+                tail.next=a;
+                a=a.next;
+
+            }
+            else {
+                tail.next=b;
+                b=b.next;
+            }
+            tail=tail.next;
+        }
+        if(a==null){
+            tail.next=b;
+        }
+        if(b==null){
+            tail.next=a;
+        }
+        return dummy.next;
+    }
     public static void main(String[] args) {
      SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
      singlyLinkedList.head = new ListNode(10);
@@ -358,6 +383,7 @@ public class SinglyLinkedList {
      containsLoop(sll);
      //to remove loop
      removeLoop(sll.head);
+
 
     }
 }

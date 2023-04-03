@@ -46,3 +46,8 @@ Java Implementation of data structures and algorithms
     3. Insert node at the beginning of CircularLinkedList
     4. Insert node at the end of CircularLinkedList
     5. Remove first node of circularsinglylinkedlist
+3. Stack 
+    1. Java Implementation of Stack using linkedlist
+    2. Reverse a String using Stack
+    3. Next Greater Element
+    4. Valid Parenthisis problem

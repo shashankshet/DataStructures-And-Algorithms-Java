@@ -46,3 +46,25 @@ Java Implementation of data structures and algorithms
     3. Insert node at the beginning of CircularLinkedList
     4. Insert node at the end of CircularLinkedList
     5. Remove first node of circularsinglylinkedlist
+
+
+## Stack
+1. Java Implementation of Stack using linkedlist
+2. Reverse a String using Stack
+3. Next Greater Element
+4. Valid Parenthisis problem
+
+## Queue
+1. Java Implementation of Queue using linkedlist
+2. Insert element into a queue
+3. Remove element from a queue
+4. How to generate binary numbers from 1 to n using queue
+
+## BinaryTree
+1. Java Implementation of Binary Tree
+2. Pre-order tree traversal (Recursive)
+3. Pre-order tree traversal (Iterative)
+4. In-order tree traversal (Recursive)
+5. In-order tree traversal (Iterative)
+6. Level order tree traversal
+7. Find the max value in a Binary Tree

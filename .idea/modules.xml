@@ -3,10 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BinarySearchTree/BinarySearchTree.iml" filepath="$PROJECT_DIR$/BinarySearchTree/BinarySearchTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BinaryTree/BinaryTree.iml" filepath="$PROJECT_DIR$/BinaryTree/BinaryTree.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedLists/CircularSinglyLinkedList/CircularSinglyLinkedList.iml" filepath="$PROJECT_DIR$/LinkedLists/CircularSinglyLinkedList/CircularSinglyLinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DSA_java.iml" filepath="$PROJECT_DIR$/.idea/DSA_java.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedLists/DoublyLinkedList/DoublyLinkedList.iml" filepath="$PROJECT_DIR$/LinkedLists/DoublyLinkedList/DoublyLinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedLists/LinkedLists.iml" filepath="$PROJECT_DIR$/LinkedLists/LinkedLists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Queue/Queue.iml" filepath="$PROJECT_DIR$/Queue/Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedLists/SinglyLinkedLists/SinglyLinkedLists.iml" filepath="$PROJECT_DIR$/LinkedLists/SinglyLinkedLists/SinglyLinkedLists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stack/Stack.iml" filepath="$PROJECT_DIR$/Stack/Stack.iml" />
     </modules>
   </component>
 </project>

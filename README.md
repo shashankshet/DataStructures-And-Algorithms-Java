@@ -68,3 +68,8 @@ Java Implementation of data structures and algorithms
 5. In-order tree traversal (Iterative)
 6. Level order tree traversal
 7. Find the max value in a Binary Tree
+
+## BinarySearchTree
+1. Java Implementation of Binary Search Tree
+2. Insert value in BST
+3. search for a key in BST

@@ -15,6 +15,8 @@ public class Matrix {
             }
         }
         System.out.println("not found");
+    } 
+    public static void main(String[] args) {
+        System.out.println("Hello world!");
     }
-
 }

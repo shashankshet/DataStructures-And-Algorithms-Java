@@ -122,7 +122,7 @@ public static void moveZeros(int arr[]){
         System.out.println("\nthe missing number is: "+missing_no);
     }
  ```
-10. To check if string is pallindrome or not
+9. To check if string is pallindrome or not
  ```java
   public static void isPallindrom(String str) {
         char arr[] = str.toCharArray();
@@ -142,25 +142,377 @@ public static void moveZeros(int arr[]){
 ## LinkedLists
 1. SinglyLinkedList
     1. Java Implementation of SinglyLinkedList
-    2. To print linkedlist
-    3. To print length of linkedlist
-    4. Insert node at the beginning of linkedlist
-    5. Insert node at the end of linkedlist
-    6. Insert node at a given valid position in linkedlist
-    7. Delete the first node in a linkedlist
-    8. Delete the last node in a linkedList
-    9. Search element in a singlylinkedlist
-    10. Reverse a singlylinkedlist
-    11. Find the middle node of a singlylinkedlist
-    12. Find the nth node from the end of singlylinkedlist
-    13. Remove duplicated from singlylinkedlist
-    14. Insert node in a sorted singlylinkedlist
-    15. Remove given key from a singlyLinkelist
-    16. Detect loop in a singlylinkedlist
-    17. Find the start of loop in a singlylinkedlist
-    18. Remove loop in a singlylinkedlist
-    19. Merge two sorted linked list
-    20. Perform addition of two linkedlist
+    ```java
+    public class SinglyLinkedList {
+    private static ListNode head;
+
+    private static class ListNode{
+        private int data;
+        private ListNode next;
+
+        public ListNode(int data){
+            this.data = data;
+            this.next = null;
+        }
+      }
+    }
+    ```
+    3. To print linkedlist
+    ```java
+    public static void printList(ListNode head){
+        ListNode current = head;
+        while (current!=null){
+            System.out.print(current.data+" -->");
+            current=current.next;
+        }
+        System.out.print("null");
+        System.out.println();
+    }
+    ```
+    5. To print length of linkedlist
+    ```java
+    public static void printLength(ListNode head){
+        ListNode current = head;
+        int count = 0;
+        while (current!=null){
+            count=count+1;
+            current=current.next;
+        }
+        System.out.println("\nThe length of the linkedList is: "+count);
+    }
+    ```
+    6. Insert node at the beginning of linkedlist
+    ```java
+        public static void insertAtStart(SinglyLinkedList sll, int val){
+        ListNode node = new ListNode(val);
+        node.next = sll.head;
+        sll.head = node;
+    }
+    ```
+    7. Insert node at the end of linkedlist
+    ```java
+     public static void insertAtEnd(SinglyLinkedList sll, int val){
+        ListNode node = new ListNode(val);
+
+        if(sll.head==null){
+            sll.head = node;
+        }
+        ListNode current = sll.head;
+        while(current.next!=null){
+            current=current.next;
+        }
+        current.next=node;
+    }
+    ```
+    8. Insert node at a given valid position in linkedlist
+    ```java
+     public static void insertAtPos(SinglyLinkedList sll, int val, int pos){
+        ListNode newNode = new ListNode(val);
+
+        if(pos==1){
+            newNode.next=sll.head;
+            sll.head = newNode;
+        }
+        else{
+            ListNode prev = sll.head;
+            int count = 1;
+            while (count<pos-1){
+                prev = prev.next;
+                count++;
+            }
+            ListNode current = prev.next;
+            newNode.next = current;
+            prev.next = newNode;
+        }
+    }
+    ```
+    9. Delete the first node in a linkedlist
+    ```java
+    public static void deleteFirst(SinglyLinkedList sll){
+        if(sll.head == null){
+            System.out.println("empty list, nothing to delete");
+        }
+        ListNode temp = sll.head;
+        sll.head = sll.head.next;
+        temp.next = null;
+        System.out.println("the linkedlist after deleting the first node");
+        ListNode current = sll.head;
+        while (current!=null){
+            System.out.print(current.data+" -->");
+            current=current.next;
+        }
+        System.out.print("null");
+        System.out.println();
+
+    }
+    ```
+    10. Delete the last node in a linkedList
+    ```java
+     public static void deleteLast(SinglyLinkedList sll){
+        if(sll.head == null || sll.head.next==null){
+            sll.head=null;
+        }
+        ListNode current = sll.head;
+        ListNode previous = null;
+        while(current.next!=null){
+            previous=current;
+            current=current.next;
+        }
+        previous.next=null;
+
+    }
+    ```
+    11. Delete the nth node from the linkedlist
+    ```java
+        public static void deletenthNode(SinglyLinkedList sll,int pos){
+        if(pos==1){
+            sll.head = sll.head.next;
+        }
+        else {
+            ListNode previous = sll.head;
+            int count = 1;
+            while (count<pos-1){
+                previous=previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            previous.next = current.next;
+        }
+    }
+    ```
+    12. Search element in a singlylinkedlist
+    ```java
+        public static boolean search(SinglyLinkedList sll,int key){
+        ListNode current = sll.head;
+        while (current!=null){
+            if(current.data==key){
+                System.out.println("key found");
+                return true;
+            }
+            current=current.next;
+        }
+        System.out.println("key not found");
+        return false;
+    }
+    ```
+    13. Reverse a singlylinkedlist
+    ```java
+    public static ListNode reverse(ListNode head){
+        if(head==null)
+            return head;
+        ListNode prev = null;
+        ListNode current = head;
+        ListNode next = null;
+        while (current!=null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+       return prev;
+    }
+    ```
+    14. Find the middle node of a singlylinkedlist
+    ```java
+    public static ListNode middleNode(ListNode head){
+        if(head==null){
+            return null;
+        }
+        ListNode slowptr= head;
+        ListNode fastptr = head;
+        while (fastptr!=null && fastptr.next!=null){
+            slowptr=slowptr.next;
+            fastptr=fastptr.next.next;
+        }
+        System.out.println(slowptr.data);
+        return slowptr;
+    }
+    ```
+    15. Find the nth node from the end of singlylinkedlist
+    ```java
+    public static void lastFronNth (SinglyLinkedList sll,int n){
+        if(sll.head==null || n<0){
+            return;
+        }
+        ListNode mainPtr = sll.head;
+        ListNode refPtr = sll.head;
+        int count = 0;
+        while (count<n){
+            refPtr = refPtr.next;
+            count++;
+        }
+        while (refPtr!=null){
+            refPtr = refPtr.next;
+            mainPtr = mainPtr.next;
+        }
+
+        System.out.println("lastFronNth: "+mainPtr.data);
+    }
+    ```
+    16. Remove duplicated from singlylinkedlist
+    ```java
+    public static void removeDuplicates(SinglyLinkedList sll){
+        if(sll.head ==null){
+            return;
+        }
+        ListNode current = sll.head;
+        while (current!=null && current.next!=null){
+            if(current.data==current.next.data){
+                current.next = current.next.next;
+            }
+            else {
+                current=current.next;
+            }
+        }
+    }
+    ```
+    17. Insert node in a sorted singlylinkedlist
+    ```java
+    public static void insertToSortedlist(SinglyLinkedList sll, int val){
+        ListNode newNode = new ListNode(val);
+        if(sll.head==null){
+            sll.head=newNode;
+        }
+        ListNode current = sll.head;
+        ListNode temp = null;
+
+        while (current!=null && current.data<newNode.data){
+            current=current.next;
+            temp = current;
+        }
+        newNode.next = current;
+        temp.next = newNode;
+
+    }
+    ```
+    18. Remove given key from a singlyLinkelist
+    ```java
+     public static void deleteNodeKey(SinglyLinkedList sll,int key){
+        ListNode currnt = sll.head;
+        ListNode temp = null;
+
+        if(sll.head==null){
+            return;
+        }
+        if(currnt!=null && currnt.data ==key){
+            currnt=currnt.next;
+            return;
+        }
+        while (currnt!=null && currnt.data!=key){
+            temp =currnt;
+            currnt=currnt.next;
+        }
+        if(currnt==null){
+            return;
+        }
+        temp.next=currnt.next;
+    }
+    ```
+    19. Detect loop in a singlylinkedlist
+    ```java
+    public static boolean containsLoop(SinglyLinkedList sll){
+        ListNode fastPtr = sll.head;
+        ListNode slowPtr = sll.head;
+
+        while (fastPtr!=null &&  fastPtr.next!=null){
+            fastPtr=fastPtr.next.next;
+            slowPtr = slowPtr.next;
+
+            if(fastPtr==slowPtr){
+                return true;
+            }
+        }
+
+        return false;
+    }
+    ```
+    20. Find the start of loop in a singlylinkedlist
+    ```java
+    public ListNode startOfLoop(){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while (fastPtr!=null && fastPtr.next!=null) {
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if(fastPtr==slowPtr){
+                return getStartingNode(slowPtr);
+            }
+        }
+        return null;
+    }
+    ```
+    21. Remove loop in a singlylinkedlist
+    ```java
+    public static void removeLoop(ListNode head){
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while (fastPtr!=null && fastPtr.next!=null){
+            fastPtr=fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if(fastPtr==slowPtr){
+                breakLoop(slowPtr);
+            }
+        }
+    }
+    public static void breakLoop(ListNode slowPtr){
+        ListNode temp = head;
+        while (temp.next!=slowPtr.next){
+            temp=temp.next;
+            slowPtr=slowPtr.next;
+        }
+        slowPtr.next = null;
+    }
+    ```
+    22. Merge two sorted linked list
+    ```java
+     public static ListNode merge(ListNode a, ListNode b){
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        while (a!=null && b!=null){
+            if(a.data<= b.data){
+                tail.next=a;
+                a=a.next;
+
+            }
+            else {
+                tail.next=b;
+                b=b.next;
+            }
+            tail=tail.next;
+        }
+        if(a==null){
+            tail.next=b;
+        }
+        if(b==null){
+            tail.next=a;
+        }
+        return dummy.next;
+    }
+    ```
+    23. Perform addition of two linkedlist
+    ```java
+    public ListNode addList(ListNode a, ListNode b){
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+        int carry = 0;
+        while(a!=null || b!=null){
+            int x = (a!=null) ? a.data:0;
+            int y = (b!=null) ? b.data:0;
+            int sum = carry + x + y;
+            carry = sum/10;
+            tail.next = new ListNode(sum%10);
+            tail=tail.next;
+            if(a!=null)a=a.next;
+            if(b!=null)b=b.next;
+
+        }
+        if(carry>0){
+            tail.next = new ListNode(carry);
+        }
+        return dummy.next;
+    }
+    ```
 2. DoublyLinkedList
     1. Java Implementation of DoublyLinkedList
     2. Print the doublyLinkedlist

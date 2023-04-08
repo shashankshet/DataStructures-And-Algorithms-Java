@@ -34,7 +34,7 @@ public static void removeEven(int arr[]){
 ```
 3. Reverse an array in java
 ```java
-ublic static void reverseArray(int arr[], int start, int end){
+public static void reverseArray(int arr[], int start, int end){
         while(start<end){
             int temp = arr[start];
             arr[start] = arr[end];
@@ -49,12 +49,95 @@ ublic static void reverseArray(int arr[], int start, int end){
         }
     }
 ```
-5. To find the minimum value element in an array
-6. To find the second max element in an array
-7. Move zeros to the end
-8. Resizing an array
-9. Finding the missing number
+4. To find the minimum value element in an array
+```java
+ public static void findMin(int arr[]){
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]<min){
+                min=arr[i];
+            }
+        }
+        System.out.println("\nthe min value in the array is: "+min);
+    }
+```
+5. To find the second max element in an array
+```java
+public static void secondMax(int arr[]){
+        int max = Integer.MIN_VALUE;
+        int second_max = Integer.MIN_VALUE;
+
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>max){
+                second_max = max;
+                max=arr[i];
+            } else if (arr[i]>second_max && arr[i]!=max ) {
+                second_max = arr[i];
+            }
+        }
+        System.out.println("\nSecond max element is: "+second_max);
+    }
+```
+6. Move zeros to the end
+```java
+public static void moveZeros(int arr[]){
+        int j=0;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]!=0 && arr[j]==0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            } else if (arr[j]!=0) {
+                j++;
+
+            }
+        }
+        System.out.println("\nAfter moving all the zeros to the end");
+        for(int i =0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+```
+7. Resizing an array
+```java
+    public static void resizeArray(int arr[], int newSize){
+        int temp[] = new int[newSize];
+        for(int i =0;i<arr.length;i++){
+            temp[i] =arr[i];
+        }
+        arr = temp;
+        System.out.println("\nthe new size of the array is: "+arr.length);
+    }
+  ```
+8. Finding the missing number
+```java
+ public static void findMissing(int arr[]){
+        int n = arr.length+1;
+        int sum =( n*(n+1))/2;
+        int sum_of_n = 0;
+        for(int i=0;i< arr.length;i++){
+            sum_of_n = sum_of_n+arr[i];
+        }
+        int missing_no = sum-sum_of_n;
+        System.out.println("\nthe missing number is: "+missing_no);
+    }
+ ```
 10. To check if string is pallindrome or not
+ ```java
+  public static void isPallindrom(String str) {
+        char arr[] = str.toCharArray();
+        int start = 0;
+        int end = arr.length - 1;
+        while (start < end) {
+            if (arr[start] != arr[end]) {
+                System.out.println("Not pallindome");
+            }
+            start++;
+            end--;
+        }
+        System.out.println(str + " is a pallindromw!");
+    }
+ ```
 
 ## LinkedLists
 1. SinglyLinkedList

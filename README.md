@@ -2,6 +2,12 @@
 Java Implementation of data structures and algorithms
 ## Arrays
 1. Print array elements
+```java
+        int res[] = {1,2,3,4,5,6,7,8,9};
+        for(int i=0;i< res.length;i++){
+            System.out.print(res[i]+" ");
+        }
+ ```
 2. Remove even integers from array
 3. Reverse an array in java
 4. To find the minimum value element in an array

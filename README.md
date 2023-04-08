@@ -515,24 +515,288 @@ public static void moveZeros(int arr[]){
     ```
 2. DoublyLinkedList
     1. Java Implementation of DoublyLinkedList
+    ```java
+    public class DoublyLinkedList{
+    private ListNode head;
+    private ListNode tail;
+    int length;
+
+    private class ListNode{
+        private int data;
+        private ListNode next;
+        private ListNode previous;
+
+        private ListNode(int data){
+            this.data = data;
+        }
+    }
+    public DoublyLinkedList(){
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    public boolean isEmpty(){
+        return length==0;
+    }
+    public int length(){
+        return length;
+      }
+    }
+    ```
     2. Print the doublyLinkedlist
+    ```java
+    public void displayForward(){
+        if(head==null){
+            return;
+        }
+        ListNode temp = head;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp=temp.next;
+        }
+        System.out.print("null \n");
+    }
+
+    public void displayBackward(){
+        if(tail==null){
+            return;
+        }
+        ListNode temp = tail;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp=temp.previous;
+        }
+        System.out.print("null \n");
+    }
+    ```
     3. Insert node at the beginning of doublylinkedlist
+    ```java
+    public void insertFirst(int value){
+        ListNode newNode = new ListNode(value);
+        if(isEmpty()){
+            tail=newNode;
+        }
+        else{
+            newNode.next = head;
+            head = newNode;
+            length++;
+        }
+    }
+    ```
     4. Insert node at the end of doublylinkedlist
+    ```java
+    public void insertLast(int value){
+        ListNode newNode = new ListNode(value);
+        if(isEmpty()){
+            head=newNode;
+        }
+        else{
+            tail.next = newNode;
+            newNode.previous = tail;
+        }
+        tail = newNode;
+        length++;
+    }
+    ```
     5. Delete node at the beginning of doublylinkedList
+    ```java
+    public ListNode deleteFirst(){
+
+        ListNode temp = head;
+        if(head==tail){
+            tail=null;
+        }
+        else{
+            head.next.previous=null;
+        }
+        head=head.next;
+        temp.next=null;
+        length--;
+        return temp;
+    }
+    ```
     6. Delete node at the end of doublylinkedList
+    ```java
+    public ListNode deleteLast(){
+        ListNode temp = tail;
+        if(head==tail){
+            head=null;
+        }
+        else{
+            tail.previous.next=null;
+        }
+        tail=tail.previous;
+        temp.previous = null;
+        length--;
+        return temp;
+    }
+    ```
 2. CircularLinkedList
     1. Java Implementation of CircularLinkedList
+    ```java
+    public class CircularSinglyLinkedList{
+    private ListNode last;
+    private int length;
+
+    private class ListNode{
+        private ListNode next;
+        private int data;
+
+        public ListNode(int data){
+            this.data=data;
+        }
+    }
+    public CircularSinglyLinkedList(){
+        last = null;
+        length=0;
+    }
+    private int length(){
+        return length;
+    }
+    public boolean isEmpty(){
+        return length==0;
+    }
+
+    public void createCircularLinkedList(){
+        ListNode one = new ListNode(10);
+        ListNode two = new ListNode(20);
+        ListNode three = new ListNode(30);
+        one.next = two;
+        two.next = three;
+        three.next = one;
+        last = three;
+    }
+    ```
     2. Print the CircularLinkedList
+    ```java
+     public void display(){
+        if(last==null){
+            return;
+        }
+        ListNode first = last.next;
+        while(first!=last){
+            System.out.print(first.data+"-->");
+            first = first.next;
+        }
+        System.out.print(first.data);
+    }
+    ```
     3. Insert node at the beginning of CircularLinkedList
+    ```java
+     public void insertFirst(int val){
+        ListNode temp = new ListNode(val);
+        if(last==null){
+            last = temp;
+        }
+        else{
+            temp.next = last.next;
+        }
+        last.next=temp;
+        length++;
+    }
+    ```
     4. Insert node at the end of CircularLinkedList
+    ```java
+    public void insertLast(int val){
+        ListNode temp = new ListNode(val);
+        if(last==null){
+            last=temp;
+            last.next=temp;
+        }
+        else{
+            temp.next = last.next;
+            last.next = temp;
+            last=temp;
+        }
+        length++;
+    }
+    ```
     5. Remove first node of circularsinglylinkedlist
+    ```java
+     public ListNode deleteFirst(){
+        ListNode temp = last.next;
+        if(last.next==last){
+            last=null;
+        }
+        else{
+            last.next = temp.next;
+
+        }
+        temp.next = null;
+        length--;
+        return temp;
+    }
+    ```
 
 
 ## Stack
 1. Java Implementation of Stack using linkedlist
 2. Reverse a String using Stack
+```java
+public static String reverse(String str){
+        java.util.Stack<Character> stack = new java.util.Stack<>();
+        char[] chars = str.toCharArray();
+        for(char c: chars){
+            stack.push(c);
+        }
+
+        for(int i=0;i<str.length();i++){
+            chars[i]=stack.pop();
+        }
+        return new String(chars);
+    }
+  ```
 3. Next Greater Element
+```java
+public static int[] nextGreatest(int[] arr){
+        int[] res = new int[arr.length];
+        java.util.Stack<Integer> stack = new java.util.Stack<Integer>();
+        for(int i=arr.length-1;i>=0;i--){
+            if(!stack.isEmpty()){
+                while (!stack.isEmpty() && stack.peek()<=arr[i]){
+                    stack.pop();
+                }
+            }
+            if (stack.isEmpty()){
+                res[i] = -1;
+            }
+            else {
+                res[i]=stack.peek();
+            }
+            stack.push(arr[i]);
+        }
+        return res;
+    }
+ ```
 4. Valid Parenthisis problem
+```java
+public static Boolean validParenthisis(String s){
+        java.util.Stack<Character> stack = new java.util.Stack<>();
+        for(char c: s.toCharArray()){
+            if(c == '(' ||  c == '{'  || c== '['){
+                stack.push(c);
+            }
+            else {
+                if(stack.isEmpty()){
+                    return false;
+                }
+                else {
+                    char top = stack.peek();
+                    if(c == ')' && top== '(' ||  c=='}'&& top == '{' || c==']'&& top=='['){
+                        stack.pop();
+                    }
+                    else {
+                        return false;
+                    }
+                }
+
+            }
+
+
+        }
+        return stack.isEmpty();
+    }
+```
 
 ## Queue
 1. Java Implementation of Queue using linkedlist

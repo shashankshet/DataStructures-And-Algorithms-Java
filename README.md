@@ -32,7 +32,23 @@ public static void removeEven(int arr[]){
 
     }
 ```
-4. Reverse an array in java
+3. Reverse an array in java
+```java
+ublic static void reverseArray(int arr[], int start, int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] =temp;
+            start++;
+            end--;
+        }
+        System.out.println("\n==================");
+        System.out.println("after reversing");
+        for(int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
+    }
+```
 5. To find the minimum value element in an array
 6. To find the second max element in an array
 7. Move zeros to the end

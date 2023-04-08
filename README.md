@@ -10,27 +10,27 @@ Java Implementation of data structures and algorithms
  ```
 2. Remove even integers from array
 ```java
-        public static void removeEven(int arr[]){
-                int oddCount=0;
-                for(int i=0;i< arr.length;i++){
-                    if(arr[i]%2!=0){
-                        oddCount++;
-                    }
-                }
-                int idx = 0;
-                int res[] = new int[oddCount];
-
-                for(int i=0;i< arr.length;i++){
-                    if(arr[i]%2!=0){
-                        res[idx]=arr[i];
-                        idx++;
-                    }
-                }
-                for(int i=0;i< res.length;i++){
-                    System.out.print(res[i]+" ");
-                }
-
+public static void removeEven(int arr[]){
+        int oddCount=0;
+        for(int i=0;i< arr.length;i++){
+            if(arr[i]%2!=0){
+                oddCount++;
             }
+        }
+        int idx = 0;
+        int res[] = new int[oddCount];
+
+        for(int i=0;i< arr.length;i++){
+            if(arr[i]%2!=0){
+                res[idx]=arr[i];
+                idx++;
+            }
+        }
+        for(int i=0;i< res.length;i++){
+            System.out.print(res[i]+" ");
+        }
+
+    }
 ```
 4. Reverse an array in java
 5. To find the minimum value element in an array

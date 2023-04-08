@@ -884,14 +884,177 @@ public String[] generataBinaryNumber(int n){
 
 ## BinaryTree
 1. Java Implementation of Binary Tree
+```java
+public class BinaryTree {
+    public TreeNode root;
+    private class TreeNode{
+        private TreeNode left;
+        private TreeNode right;
+        private int data;
+
+        public TreeNode(int data){
+            this.data = data;
+        }
+    }
+ }
+```
 2. Pre-order tree traversal (Recursive)
+```java
+public void preOrder(TreeNode root){
+    if(root==null){
+        return;
+    }
+    System.out.print(root.data+" ");
+    preOrder(root.left);
+    preOrder(root.right);
+    }
+ ```
 3. Pre-order tree traversal (Iterative)
+```java
+ public void preOrderIterative(TreeNode root){
+        if (root==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode temp = stack.pop();
+            System.out.print(temp.data+" ");
+            if(temp.right!=null){
+                stack.push(temp.right);
+            }
+            if(temp.left!=null){
+                stack.push(temp.left);
+            }
+        }
+    }
+ ```
 4. In-order tree traversal (Recursive)
+```java
+    public void inorder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        inorder(root.left);
+        System.out.print(root.data+" ");
+        inorder(root.right);
+    }
+ ```
 5. In-order tree traversal (Iterative)
-6. Level order tree traversal
-7. Find the max value in a Binary Tree
+```java
+ public void inOrderIterative(TreeNode root){
+        if(root==null){
+            return;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode temp = root;
+        while (!stack.isEmpty() || temp!=null){
+            if(temp!=null){
+                stack.push(temp);
+                temp=temp.left;
+            }
+            else {
+                temp=stack.pop();
+                System.out.print(temp.data+" ");
+                temp=temp.right;
+            }
+        }
+    }
+```
+6. Post order traversal
+```java
+    public void postOrder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+    }
+```
+7. Level order tree traversal
+```java
+public void levelOrder(){
+        if(root==null){
+            return;
+        }
+        Queue<TreeNode> queue=  new LinkedList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            TreeNode temp = queue.poll();
+            System.out.print(temp.data+" ");
+            if(temp.left!=null){
+                queue.offer(temp.left);
+            }
+            if(temp.right!=null){
+                queue.offer(temp.right);
+            }
+
+        }
+    }
+ ```
+8. Find the max value in a Binary Tree
+```java
+public int findMax(TreeNode root){
+        if(root==null){
+            return Integer.MIN_VALUE;
+        }
+        int res = root.data;
+        int left = findMax(root.left);
+        int right = findMax(root.right);
+        if(left>res){
+            res =  left;
+        }
+        if(right>res){
+            res =  right;
+        }
+        return res;
+    }
+ ```
 
 ## BinarySearchTree
 1. Java Implementation of Binary Search Tree
+```java
+public class BinarySearchTree {
+    private TreeNode root;
+    private class TreeNode{
+        private int data;
+        private TreeNode left;
+        private TreeNode right;
+
+        public TreeNode(int data){
+            this.data=data;
+        }
+    }
+  }
+ ```
 2. Insert value in BST
+```java
+public TreeNode insert(TreeNode root, int val){
+        if(root==null){
+            root=new TreeNode(val);
+            return root;
+        }
+        if (val< root.data){
+            root.left = insert(root.left,val);
+        }
+        else {
+            root.right = insert(root.right, val);
+        }
+        return root;
+    }
+ ```
 3. search for a key in BST
+```java
+public TreeNode seacrch(TreeNode root, int key){
+        if (root==null || root.data==key){
+            return root;
+        }
+        if(root.data<key){
+            return seacrch(root.left,key);
+        }
+        else {
+            return seacrch(root.right,key);
+        }
+    }
+ ```
